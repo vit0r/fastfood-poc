@@ -1,4 +1,4 @@
-Flask==0.10
+Flask==1.0
 gTTS==1.1.8
 pydub==0.18.0
 Flask-JSON==0.3.0
