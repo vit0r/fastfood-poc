@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Include Day 5</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="toggled">
+
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">Include Day 5</a>
+                </li>
+                <li>
+                    <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
+                </li>
+                <li>
+                    <a href="cadastrar-pedido.html" accesskey="p" tabindex="2">Cadastrar Pedido</a>
+                </li>
+                <li>
+                    <a href="listar-pedidos.html" accesskey="l" tabindex="3">Listar pedidos</a>
+                </li>
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Manutenção de Produtos</h1>
+                        <button id="btn-cadastrar-produto-modal" accesskey="c" class="btn btn-primary pull-right" data-toggle="modal" data-target="#cadastrarProdutoModal">Cadastrar</button>
+                        <div class="modal fade" tabindex="4" id="cadastrarProdutoModal" tabindex="-1" role="dialog" aria-labelledby="cadastrarProdutoModal" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="cadastrarProdutoModalLabel">Cadastrar Produto</h5>
+                                        <button type="button" tabindex="5" accesskey="cc" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <input type="hidden" class="form-control" id="produto-id">
+                                            <div class="form-group">
+                                                <label for="produto-nome" class="form-control-label">Nome:</label>
+                                                <input type="text" class="form-control" id="produto-nome" tabindex="6">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="produto-preco" class="form-control-label">Preço:</label>
+                                                <input type="text" class="form-control" id="produto-preco" tabindex="7">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="produto-categoria" class="form-control-label">Categoria:</label>
+                                                <input type="text" class="form-control" id="produto-categoria" tabindex="8">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group">
+                                            <div class="col-md-10 col-sm-offset-2">
+                                                <button type="button" tabindex="9" accesskey="s" class="btn btn-success" id="btn-cadastrar-produto">Confirmar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <table class="table table-bordered" summary="Tabela produtos cadastrados">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%">Código</th>
+                                        <th style="width: 20%">Nome</th>
+                                        <th style="width: 10%">Preço</th>
+                                        <th style="width: 15%">Categoria</th>
+                                        <th style="white-space: nowrap;">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-products"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Config JavaScript-->
+    <script src="js/config.js"></script>
+
+    <!-- Produto JavaScript-->
+    <script src="js/produto.js"></script>
+
+    <!-- BootBox Messages alert-->
+    <script src="js/bootbox.min.js"></script>
+
+    <!-- Formata os valores núméricos com mascara de moeda BRL-->
+    <script src="js/numeral.min.js"></script>
+
+    <!-- Utils JavaScript-->
+    <script src="js/utils.js"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            Produto.inicializar();
+        });
+    </script>

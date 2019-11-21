@@ -1,0 +1,30 @@
+Api de Produtos
+---
+    tags:
+      - Produto API
+    parameters:
+      - name: product_id
+        in: path
+        type: integer
+        required: false
+        description: Código do produto
+    responses:
+      500:
+        description: Error interno!
+      200:
+        description: Sucesso!
+        schema:
+          id: produto
+          properties:
+            id:
+              type: integer
+              description: Código do produto
+            category:
+              type: string
+              description: Categoria do produto
+            name:
+              type: string
+              description: Nome do produto
+            price:
+              type: float
+              default: 0

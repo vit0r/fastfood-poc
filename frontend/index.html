@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Include Day 5</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="toggled">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                    Include Day 5
+                </a>
+                </li>
+                <li>
+                    <a href="/" accesskey="i">Inicio</a>
+                </li>
+                <li>
+                    <a href="produto.html" accesskey="r" tabindex="1">Produtos</a>
+                </li>
+                <li>
+                    <a href="cadastrar-pedido.html" accesskey="p" tabindex="2">Cadastrar Pedidos</a>
+                </li>
+                <li>
+                    <a href="listar-pedidos.html" accesskey="l" tabindex="3">Listar pedidos</a>
+                </li>
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="mx-auto" style="width: 200px;">
+                    <div class="card-block">
+                        <h4 class="card-title">Pedido de número:</h4>
+                        <hr>
+                        <h1 id="num-pedido" class="card-text btn-danger text-center"></h1>
+                        <hr>
+                        <button id="btn-recarregar-num-pedido" tabindex="4 " class="btn btn-primary">Recarregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- BootBox Messages alert-->
+    <script src="js/bootbox.min.js"></script>
+
+    <!-- Config JavaScript-->
+    <script src="js/config.js"></script>
+
+    <!-- Index JS -->
+    <script src="js/index.js"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            Index.inicializar();
+        });
+    </script>
+</body>
+
+</html>
