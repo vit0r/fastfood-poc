@@ -6,7 +6,7 @@ flask-SQLALCHEMY==2.2
 marshmallow==2.13.1
 flask-cors==3.0.2
 Babel==2.3.4
-PyYAML==3.11
+PyYAML==5.1
 enum34
 flask-cors==3.0.2
 flasgger==0.5.13
