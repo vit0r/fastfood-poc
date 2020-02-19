@@ -1,13 +1,13 @@
 from marshmallow import Schema, fields, post_load
 
-from models import Product, Order
+from app.models import Order, Product
 
 
 class ProductSchema(Schema):
     id = fields.Integer()
-    name = fields.String(50)
+    name = fields.String()
     price = fields.Float()
-    category = fields.String(20)
+    category = fields.String()
     quantity = fields.Integer()
 
     @post_load

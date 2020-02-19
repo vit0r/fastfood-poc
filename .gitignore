@@ -98,5 +98,5 @@ ENV/
 .vscode
 
 #node
-frontend/node_modules/
+node_modules
 
