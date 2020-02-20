@@ -150,7 +150,7 @@ def called():
     order = Order.query.filter(Order.is_called and Order.is_sentent == 0).first()
     if order:
         mapper = OrderSchema().dump(order)
-        return json.dumps(mapper.data)
+        return json.dumps(mapper)
     return json_response(
         status_=StatusCodeEnum.HTTP_404_NOT_FOUND,
         result=get_messages("ORDER_NOT_FOUND"),
