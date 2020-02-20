@@ -128,5 +128,5 @@ def get_messages(key):
     with codecs.open(
         file_path, mode="r", encoding=current_app.config.get("TEXT_ENCODE")
     ) as msg_file:
-        msg_from_key = yaml.load(msg_file)
+        msg_from_key = yaml.safe_load(msg_file)
     return msg_from_key.get(key)
