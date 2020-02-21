@@ -26,16 +26,13 @@ def get(order_id):
         {"id": 2, "price": 0.0, "quantity": 0},
         {"id": 3, "price": 0.0, "quantity": 0}]
     """
-    try:
-        if order_id:
-            result = OrderSchema().dump(Order.query.get(order_id))
-        else:
-            result = OrderSchema(many=True).dump(Order.query.order_by(Order.id).all())
-        if not result:
-            return json_response(status_=StatusCodeEnum.HTTP_404_NOT_FOUND)
-        return json.dumps(result)
-    except:
-        raise
+    if order_id:
+        result = OrderSchema().dump(Order.query.get(order_id))
+    else:
+        result = OrderSchema(many=True).dump(Order.query.order_by(Order.id).all())
+    if not result:
+        return json_response(status_=StatusCodeEnum.HTTP_404_NOT_FOUND)
+    return json.dumps(result)
 
 
 @orders_blueprint.route("order", methods=["POST"])
@@ -78,7 +75,7 @@ def close():
                 result=get_messages("ORDER_HAS_SENTENT").format(order.id),
             )
         calc_order(products_order.get("products"), order, products)
-        money_ext, money_ext_brl = money_format(order.price)
+        *_, money_ext_brl = money_format(order.price)
         return json_response(
             status_=StatusCodeEnum.HTTP_201_CREATED,
             result=get_messages("CLOSING_ORDER_MESSAGE_POPUP").format(
@@ -86,8 +83,8 @@ def close():
             ),
         )
     except ValueError as ex:
-        print(ex)
         db_session.rollback()
+        raise ex
     finally:
         db_session.close()
 

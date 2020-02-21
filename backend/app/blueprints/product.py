@@ -38,9 +38,9 @@ def add():
             status_=StatusCodeEnum.HTTP_201_CREATED,
             result=get_messages("PRODUCT_CREATED"),
         )
-    except:
+    except ValueError as ex:
         db_session.rollback()
-        raise
+        raise ex
     finally:
         db_session.close()
 
@@ -83,9 +83,9 @@ def edit(product_id):
             status_=StatusCodeEnum.HTTP_202_ACCEPTED,
             result=get_messages("PRODUCT_CHANGED"),
         )
-    except:
+    except ValueError as ex:
         db_session.rollback()
-        raise
+        raise ex
     finally:
         db_session.close()
 
@@ -111,9 +111,9 @@ def delete(product_id):
             status_=StatusCodeEnum.HTTP_202_ACCEPTED,
             result=get_messages("PRODUCT_REMOVED"),
         )
-    except:
+    except ValueError as ex:
         db_session.rollback()
-        raise
+        raise ex
     finally:
         db_session.close()
 
@@ -156,17 +156,14 @@ def get(product_id, product_name):
             {"category": "hamburguer", "id": 3, "name": "X Burger", "price": 15.0}
         ]
     """
-    try:
-        if product_id:
-            result = ProductSchema().dump(Product.query.get(product_id))
-        elif product_name:
-            result = ProductSchema(many=True).dump(
-                Product.query.filter(Product.name.like("{}%".format(product_name)))
-            )
-        else:
-            result = ProductSchema(many=True).dump(Product.query.all())
-        if not result:
-            return json_response(status_=StatusCodeEnum.HTTP_404_NOT_FOUND)
-        return json.dumps(result)
-    except ValueError as ex:
-        print(ex)
+    if product_id:
+        result = ProductSchema().dump(Product.query.get(product_id))
+    elif product_name:
+        result = ProductSchema(many=True).dump(
+            Product.query.filter(Product.name.like(f"{product_name}%"))
+        )
+    else:
+        result = ProductSchema(many=True).dump(Product.query.all())
+    if not result:
+        return json_response(status_=StatusCodeEnum.HTTP_404_NOT_FOUND)
+    return json.dumps(result)
