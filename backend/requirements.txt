@@ -27,7 +27,7 @@ MarkupSafe==1.1.1
 marshmallow==3.2.2
 mccabe==0.6.1
 mistune==0.8.4
-numpy==1.18.1
+numpy==1.22.0
 pathspec==0.7.0
 pycodestyle==2.5.0
 pydocstyle==5.0.2
